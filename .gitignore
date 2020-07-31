@@ -1,5 +1,6 @@
 core/__pycache__/
 core/static
+staticfiles/
 env
 .idea/
 

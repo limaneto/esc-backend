@@ -1,7 +1,5 @@
 FROM python:3.6-stretch
 
-WORKDIR /app
-
 EXPOSE 8000
 
 # sets the environment variable
@@ -16,12 +14,12 @@ RUN apt-get update -y && \
     apt-get install -y apt-transport-https rsync gettext libgettextpo-dev && \
     rm -rf /var/lib/apt/lists/*
 
-# Install Python requirements.
-COPY requirements.txt requirements.txt ./
-RUN pip install -r requirements.txt
-
 # Copy application code.
-COPY . .
+COPY . /app
+
+WORKDIR /app
+
+RUN pip install -r requirements.txt
 
 # Install assets
 RUN python manage.py collectstatic --noinput
