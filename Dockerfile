@@ -7,7 +7,7 @@ EXPOSE 8000
 # sets the environment variable
 ENV PYTHONUNBUFFERED=1 \
     PYTHONPATH=/app \
-#     DJANGO_SETTINGS_MODULE=config.settings.production \
+    DJANGO_SETTINGS_MODULE=core.settings \
     PORT=8000 \
     WEB_CONCURRENCY=3
 
