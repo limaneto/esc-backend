@@ -24,7 +24,7 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # Install assets
-# RUN python manage.py collectstatic --noinput
+RUN python manage.py collectstatic --noinput
 
 # Run application
 CMD gunicorn config.wsgi:application
