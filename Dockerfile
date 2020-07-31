@@ -7,7 +7,7 @@ EXPOSE 8000
 # sets the environment variable
 ENV PYTHONUNBUFFERED=1 \
     PYTHONPATH=/app \
-    DJANGO_SETTINGS_MODULE=config.settings.production \
+#     DJANGO_SETTINGS_MODULE=config.settings.production \
     PORT=8000 \
     WEB_CONCURRENCY=3
 
@@ -24,7 +24,7 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # Install assets
-RUN python manage.py collectstatic --noinput --clear
+# RUN python manage.py collectstatic --noinput
 
 # Run application
 CMD gunicorn config.wsgi:application
