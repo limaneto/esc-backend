@@ -1,7 +1,13 @@
 import os
 import environ
-env = environ.Env(DEBUG=(bool, False))
-environ.Env.read_env()
+
+base = environ.Path(__file__) - 2
+env = environ.Env(DEBUG=(bool, True))
+env_file = '.env'
+if not env.str('ENV_PATH', '.env') == '.env':
+    env_file = env.str('ENV_PATH', '.env') + env_file
+
+env.read_env(env_file=base(env_file))
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
