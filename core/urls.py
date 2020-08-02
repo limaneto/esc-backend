@@ -6,5 +6,5 @@ from app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url('date', views.current_datetime),
+    url('hello/', views.hello_world),
 ]

@@ -1,8 +1,7 @@
-from django.http import HttpResponse
-import datetime
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 
-def current_datetime(request):
-    now = datetime.datetime.now()
-    html = "<html><body>Currently is now %s.</body></html>" % now
-    return HttpResponse(html)
+@api_view(['POST'])
+def hello_world(request):
+    return Response({"message": "Got some data!", "data": request.data})
