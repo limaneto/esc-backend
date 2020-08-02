@@ -6,5 +6,5 @@ from app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url('hello/', views.hello_world),
+    url('generate/', views.generate),
 ]
